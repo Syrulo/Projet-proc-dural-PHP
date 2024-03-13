@@ -1,0 +1,24 @@
+<h1>Gallery</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+Alias provident deserunt aut, tempora fuga repellendus fugit unde ad, 
+labore sint sit odio minima dolorum obcaecati nisi, expedita quis rem facilis?</p>
+<section id="gallery" class="row">
+<!-- On boucle sur le tableau d'images via un foreach  -->
+    <?php foreach ($posts as $article): ?>
+
+        <article class="col-12 col-sm-6 col-md-4 mb-3">
+            <div class="card">
+                <!-- Puis on affiche tout ce qui provient de la source $src -->
+            <img src="<?php echo $article['image'];?>" class="card-img-top" alt="Ocean">
+            <div class="card-body">
+                <h5 class="card-title"><?= $article['title'] ?></h5>
+                <p class="card-text"><?= $article['description'] ?></p>
+                <p>Author : <?= $article['firstname'] ?> <?= $article['lastname'] ?> <?= $article['datepost'] ?></p>
+                <a href="?page=detail&id=<?=$article['post_id']?>" class="btn btn-dark">Read more</a>
+            </div>
+        </div>
+        </article>
+<!-- Fin du foreach -->
+<?php endforeach ?>
+</section>
+

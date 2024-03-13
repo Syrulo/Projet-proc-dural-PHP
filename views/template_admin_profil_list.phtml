@@ -1,0 +1,36 @@
+<h1>Profiles List</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Email</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($profiles as $profil) : ?>
+        <tr>
+        <td><?= $profil['id'] ?></td>
+        <td><?= $profil['email'] ?></td>
+        <td><?= $profil['firstname'] ?></td>
+        <td><?= $profil['lastname'] ?></td>
+        <td>
+        <a class="btn btn-primary mb-3" href="?page=profil&id=<?= $profil['id'] ?>" role="button">Show Details</a>
+        <a class="btn btn-warning mb-3" href="?page=admin_profil_update&id=<?= $profil['id'] ?>" role="button">Update</a>
+        <a class="btn btn-danger mb-3" href="javascript:deleteProfil(<?= $profil['id'] ?>)" role="button">Delete</a>
+        </td>
+        </tr>
+    <?php endforeach ?>
+    </tbody>
+    </table>
+    <script>
+    function deleteProfil(id){
+        const question = window.confirm("Are you sure you want to delete the profil and all the informations corresponding ?");
+        if (question===true){
+            location.href = "?page=admin_profil_delete&id="+id;
+        }
+    }
+</script>

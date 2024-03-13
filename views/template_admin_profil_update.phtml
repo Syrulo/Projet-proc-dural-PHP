@@ -1,0 +1,53 @@
+<h1>Update the profil of : <div class="text-danger"><?= $the_profil['email'] ?></div></h1>
+
+<form method="POST" action="?page=admin_profil_update&id=<?= $the_profil['id'] ?>">
+<div class="row">
+  <div class="col-6 mb-3">
+    <label for="email" class="form-label text-danger">Email *</label>
+    <input required type="text" value="<?= $the_profil['email'] ?>" class="form-control" name="email" id="email" placeholder="Add a email">
+  </div>
+  <div class="col-6 mb-3">
+    <label for="firstname" class="form-label text-danger">Firstname *</label>
+    <input required type="text" value="<?= $the_profil['firstname'] ?>" class="form-control" name="firstname" id="firstname" placeholder="Add a firstname">
+  </div>
+</div>
+  <div class="col-6 mb-3">
+    <label for="lastname" class="form-label text-danger">Lastname *</label>
+    <input required type="text" value="<?= $the_profil['lastname'] ?>" class="form-control" name="lastname" id="lastname" placeholder="Add a lastname">
+  </div>
+  <div class="col-12 mb-3">
+    <label for="address1" class="form-label text-danger">Address1</label>
+    <input type="text" value="<?= $the_profil['address1'] ?>" class="form-control" name="address1" id="address1" placeholder="Add a address1">
+  </div>
+  <div class="col-12 mb-3">
+    <label for="address2" class="form-label text-danger">Address2</label>
+    <input type="text" value="<?= $the_profil['address2'] ?>" class="form-control" name="address2" id="address2" placeholder="Add a address2">
+  </div>
+  <div class="row">
+  <div class="col-4 mb-3">
+    <label for="city" class="form-label text-danger">City</label>
+    <input type="text" value="<?= $the_profil['city'] ?>" class="form-control" name="city" id="city" placeholder="Add a city">
+  </div>
+  <div class="col-4 mb-3">
+    <label for="state" class="form-label text-danger">State</label>
+    <select id="state" name="state" class="form-select">
+                <option >Choose...</option>
+                <?php foreach ($state as $value) : ?>
+                    <option <?php if($the_profil['state'] == $value){echo "selected"; }?>><?= $value ?></option>
+                <?php endforeach; ?>
+            </select>
+  </div>
+  <div class="col-4 mb-3">
+    <label for="zip" class="form-label text-danger">Zip</label>
+    <input type="text" value="<?= $the_profil['zip'] ?>" class="form-control" name="zip" id="zip" placeholder="Add a zip">
+  </div>
+</div>
+  <div class="col-12 mb-3">
+    <label for="city" class="form-label text-danger">Message</label>
+    <textarea class="form-control" name="message" id="message" placeholder="Add a message"><?= $the_profil['message'] ?></textarea>
+  </div>
+  <p class="text-danger"> Required fields * </p>
+  <div class="mb-3">
+    <input type="submit" class="btn btn-success" value="Update this Profil Now !">
+  </div>
+</form>

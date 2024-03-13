@@ -1,0 +1,31 @@
+<section id="detail">
+
+<h1><?= $post['title'] ?></h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio vel exercitationem quasi, nemo voluptatem eligendi neque, repellendus unde iusto explicabo numquam voluptatum illum expedita ab quia, quibusdam doloribus dolorum. Nulla.</p>
+<section id="detail">
+        <div class="card">
+        <h5 class="card-title"><?= $post['title'] ?></h5>
+            <img src="<?= $post['image'] ?>">
+            <div class="card-body">
+                <h5 class="card-title"><?= $post['title'] ?></h5>
+                <p class="card-text"><?= substr($post['description'],0,60) ?>...</p>
+                <p><small>Post by: <strong><?= $post['firstname'] ?> <?= $post['lastname'] ?></strong></small></p>
+                at: <strong> <?= $post['created_at'] ?>
+            </div>
+            <?php 
+            if($member == true) :
+            ?>
+            <form method="POST" action="?page=detail&id=<?php echo $post['id'] ?>">
+                <h4>Leave a comment here :</h4>
+                <div class="form-floating">
+                    <textarea class="form-control" name="commentaire"   placeholder="Leave a comment here" id="commentaire" style="height: 100px"></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Send</button>
+            </form>
+            <?php endif; ?>
+            <h2>Tout les commentaires</h2>
+           <?php foreach($commentaires as $message): ?>
+            <p><small>Author: <strong><?= $message['firstname'] ?> <?= $message['lastname'] ?> <?= $message['commentaire'] ?> at: <?= $message['datecom'] ?></strong></small></p>
+           <?php endforeach; ?>
+        </div>
+</section>

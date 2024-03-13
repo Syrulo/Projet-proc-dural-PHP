@@ -1,0 +1,29 @@
+#caroussel img{
+    aspect-ratio: 16/10;
+}
+#logo{
+  width: 50px;
+}
+#message{
+  height: 120px;
+}
+img.thumbnail{
+  width: 100px;
+}
+#gallery img{
+  aspect-ratio: 16/10;
+}
+
+.profil{
+  border-radius: 10px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}

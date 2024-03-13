@@ -1,0 +1,25 @@
+<h1>Search result(s)  for "<?= $keywords; ?>"</h1>
+
+<section id="gallery" class="row">
+<!-- On boucle sur le tableau d'images via un foreach  -->
+    <?php foreach ($posts as $search): ?>
+
+        <article class="col-12 col-sm-6 col-md-4 mb-3">
+            <div class="card">
+                <!-- Puis on affiche tout ce qui provient de la source $src -->
+            <img src="<?php echo $search['image'];?>" class="card-img-top" alt="Ocean">
+            <div class="card-body">
+                <h5 class="card-title"><?= $search['title'] ?></h5>
+                <p class="card-text"><?= $search['description'] ?></p>
+                <a href="#" class="btn btn-dark">Read more</a>
+            </div>
+        </div>
+        </article>
+<!-- Fin du foreach -->
+<?php endforeach ?>
+<?php foreach ($comment as $search): ?>
+<div>
+<p class="card-text"><?= $search['commentaire'] ?></p> 
+</div>
+<?php endforeach ?>
+</section>
